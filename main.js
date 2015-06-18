@@ -1,39 +1,24 @@
-function Ninja(stars, gender, age){
 
-  this.stars = stars;
-  this.gender = gender;
-  this.age = age;
-
-  this.getStars = function(){
-    return this.stars;
-  };
-
-  this.hasSword = true;
-
-  this.throwStar = function() {
-    if (this.getStars() > 0){
-      console.log("Threw a Star");
-      this.stars--;
-    } else {
-      console.log("No more stars! Vanish!");
-    }
-  };
+function Anchor(age, gender, signoff){
+    this.age = age;
+    this.gender = gender;   
 }
 
-var ninja1 = new Ninja(4);
-var ninja2 = new Ninja(1);
-
-//this will not alter ninja1
-ninja2.hasMask = true;
-
-//this will alter both ninjas and all future ninjas
-Ninja.prototype.wearsBlack = true;
-
-function MountedNinja(){
-  Ninja.apply(this, arguments);
-  this.ridesHorse = true;
+function National() {
+    Anchor.apply(this, arguments);
+    this.signoff = "Good Night and Good Luck."    
 }
 
-MountedNinja.prototype = new Ninja();
+function Local() {
+    Anchor.apply(this, arguments);
+    this.signoff = "Stay Classy, San Diego"
+}
 
-rider = new MountedNinja(4);
+National.prototype = new Anchor();
+Local.prototype = new Anchor();
+
+var lester = new National(56, "male");
+var katie = new National(58, "female");
+
+var burgundy = new Local(47, "male");
+var corningstone = new Local(43, "female");
