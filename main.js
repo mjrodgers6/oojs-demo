@@ -6,7 +6,7 @@ function Ninja(stars){
     return this.stars;
   };
 
-  hasSword: true;
+  ths.hasSword = true;
 
   this.throwStar = function() {
     if (this.getStars() > 0){
