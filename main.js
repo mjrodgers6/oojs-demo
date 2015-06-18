@@ -1,6 +1,8 @@
-function Ninja(stars){
+function Ninja(stars, gender, age){
 
   this.stars = stars;
+  this.gender = gender;
+  this.age = age;
 
   this.getStars = function(){
     return this.stars;
@@ -28,9 +30,10 @@ ninja2.hasMask = true;
 Ninja.prototype.wearsBlack = true;
 
 function MountedNinja(){
+  Ninja.apply(this, arguments);
   this.ridesHorse = true;
 }
 
-MountedNinja.prototype = new Ninja(4);
+MountedNinja.prototype = new Ninja();
 
-rider = new MountedNinja();
+rider = new MountedNinja(4);
